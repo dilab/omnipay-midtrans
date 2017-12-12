@@ -25,7 +25,7 @@ And run composer to update your dependencies:
     
 ## Support
 This package currently supports following products from Midtrans:
-+ [Snap](https://snap-docs.midtrans.com/)
++ [Snap](https://snap-docs.midtrans.com/) via [Window Redirection](https://snap-docs.midtrans.com/#window-redirection)
 
 ## Basic Usage
 
