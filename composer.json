@@ -1,0 +1,28 @@
+{
+    "name": "dilab/omnipay-midtrans",
+    "description": "Midtrans gateway for Omnipay payment processing library",
+    "keywords": [
+        "gateway",
+        "merchant",
+        "omnipay",
+        "midtrans"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "xu ding",
+            "email": "thedilab@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "omnipay/common": "~2.0"
+    },
+    "require-dev": {
+        "omnipay/tests": "~2.0"
+    },
+    "autoload": {
+        "psr-4": { "Omnipay\\Midtrans\\" : "src/" }
+    }
+}
