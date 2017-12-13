@@ -20,6 +20,10 @@ class SnapWindowRedirectionPurchaseRequest extends AbstractRequest
         return $this->response = new SnapWindowRedirectionPurchaseResponse($this, $responseData);
     }
 
+    /**
+     * @return array|mixed
+     * @throws InvalidRequestException
+     */
     public function getData()
     {
         $this->validate('amount', 'transactionId');
