@@ -1,0 +1,13 @@
+HTTP/1.1 400 OK
+Server: nginx/1.9.12
+Date: Fri, 02 Sep 2016 06:17:31 GMT
+Content-Type: text/html
+Content-Length: 16
+Connection: keep-alive
+Cache-Control: private
+
+{
+  "error_messages": [
+    "Access denied, please check client or server key"
+  ]
+}

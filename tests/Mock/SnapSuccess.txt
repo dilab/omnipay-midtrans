@@ -1,0 +1,12 @@
+HTTP/1.1 201 OK
+Server: nginx/1.9.12
+Date: Fri, 02 Sep 2016 06:17:31 GMT
+Content-Type: text/html
+Content-Length: 16
+Connection: keep-alive
+Cache-Control: private
+
+{
+  "token": "d379aa71-99eb-4dd1-b9bb-eefe813746e9",
+  "redirect_url": "https://app.sandbox.veritrans.co.id/snap/v2/vtweb/d379aa71-99eb-4dd1-b9bb-eefe813746e9"
+}

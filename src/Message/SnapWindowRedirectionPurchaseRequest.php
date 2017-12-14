@@ -3,6 +3,7 @@
 namespace Omnipay\Midtrans\Message;
 
 
+use Guzzle\Http\Exception\ClientErrorResponseException;
 use Omnipay\Common\Exception\InvalidRequestException;
 
 class SnapWindowRedirectionPurchaseRequest extends AbstractRequest
@@ -13,7 +14,7 @@ class SnapWindowRedirectionPurchaseRequest extends AbstractRequest
     public function sendData($data)
     {
         $responseData = $this->httpClient
-            ->post($this->getEndPoint(), $this->getSendDataHeader(), $data)
+            ->post($this->getEndPoint(), $this->getSendDataHeader(), $data, ['exceptions' => false])
             ->send()
             ->getBody(true);
 
