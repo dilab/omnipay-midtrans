@@ -30,8 +30,7 @@ class SnapWindowRedirectionPurchaseResponseTest extends TestCase
         $this->response = new SnapWindowRedirectionPurchaseResponse($this->getMockRequest(), $httpResponse);
 
         $this->assertFalse($this->response->isPending());
-        $this->assertTrue($this->response->isSuccessful());
-        $this->assertSame('d379aa71-99eb-4dd1-b9bb-eefe813746e9', $this->response->getMessage());
+        $this->assertFalse($this->response->isSuccessful());
         $this->assertTrue($this->response->isRedirect());
         $this->assertNull($this->response->getRedirectData());
         $this->assertNull($this->response->getTransactionReference());

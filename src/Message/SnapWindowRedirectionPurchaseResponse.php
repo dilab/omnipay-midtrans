@@ -14,6 +14,7 @@ class SnapWindowRedirectionPurchaseResponse extends AbstractResponse
         if (!is_array($data)) {
             $this->data = json_decode(trim($data), true);
         }
+
     }
 
     public function isPending()
@@ -23,7 +24,7 @@ class SnapWindowRedirectionPurchaseResponse extends AbstractResponse
 
     public function isSuccessful()
     {
-        return isset($this->data['token']);
+        return false;
     }
 
     public function isRedirect()
@@ -48,8 +49,8 @@ class SnapWindowRedirectionPurchaseResponse extends AbstractResponse
 
     public function getMessage()
     {
-        if ($this->isSuccessful()) {
-            return $this->data['token'];
+        if (!isset($this->data['error_messages'])) {
+            return null;
         }
 
         return array_pop($this->data['error_messages']);

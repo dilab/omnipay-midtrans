@@ -33,7 +33,7 @@ class SnapWindowRedirectionGatewayTest extends TestCase
 
         $response = $this->gateway->purchase($this->options)->send();
 
-        $this->assertTrue($response->isSuccessful());
+        $this->assertFalse($response->isSuccessful());
         $this->assertTrue($response->isRedirect());
     }
 
