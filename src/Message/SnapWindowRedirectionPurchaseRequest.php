@@ -33,12 +33,32 @@ class SnapWindowRedirectionPurchaseRequest extends AbstractRequest
 
         $this->guardTransationId();
 
-        return [
+        $result = [
             'transaction_details' => [
                 'order_id' => $this->getTransactionId(),
                 'gross_amount' => intval($this->getAmount()),
+            ],
+            'item_details' => [
+                [
+                    'id' => $this->getTransactionId(),
+                    'price' => intval($this->getAmount()),
+                    'quantity' => 1,
+                    'name' => $this->getDescription(),
+                    'brand' => $this->getDescription(),
+                ]
             ]
         ];
+
+        if ($this->getCard()) {
+            $result['customer_details'] = [
+                'first_name' => $this->getCard()->getFirstName(),
+                'last_name' => $this->getCard()->getLastName(),
+                'email' => $this->getCard()->getEmail(),
+                'phone' => $this->getCard()->getNumber(),
+            ];
+        }
+
+        return $result;
     }
 
     protected function getSendDataHeader()

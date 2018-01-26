@@ -58,9 +58,16 @@ class SnapWindowRedirectionPurchaseRequestTest extends TestCase
     public function testGetData()
     {
         $this->request->initialize([
-            'serverKey' => 'VT-server-Cpo03kYDOc0cNUKgt6hnLkKg',
+            'card' => [
+                'firstName' => 'Xu',
+                'lastName' => 'Ding',
+                'email' => 'xuding@spacebib.com',
+                'number' => '93804194'
+            ],
+            'description' => 'Marina Run 2016',
             'amount' => '10000.00',
-            'transactionId' => 'ORDER-101'
+            'transactionId' => 'ORDER-101',
+            'serverKey' => 'VT-server-Cpo03kYDOc0cNUKgt6hnLkKg',
         ]);
 
         $result = $this->request->getData();
@@ -69,6 +76,21 @@ class SnapWindowRedirectionPurchaseRequestTest extends TestCase
             'transaction_details' => [
                 'order_id' => 'ORDER-101',
                 'gross_amount' => 10000
+            ],
+            'item_details' => [
+                [
+                    'id' => 'ORDER-101',
+                    'price' => 10000,
+                    'quantity' => 1,
+                    'name' => 'Marina Run 2016',
+                    'brand' => 'Marina Run 2016',
+                ]
+            ],
+            'customer_details' => [
+                'first_name' => 'Xu',
+                'last_name' => 'Ding',
+                'email' => 'xuding@spacebib.com',
+                'phone' => '93804194'
             ]
         ];
 
