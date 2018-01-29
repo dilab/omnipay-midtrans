@@ -14,7 +14,7 @@ class SnapWindowRedirectionPurchaseRequest extends AbstractRequest
     public function sendData($data)
     {
         $responseData = $this->httpClient
-            ->post($this->getEndPoint(), $this->getSendDataHeader(), $data, ['exceptions' => false])
+            ->post($this->getEndPoint(), $this->getSendDataHeader(), json_encode($data), ['exceptions' => false])
             ->send()
             ->getBody(true);
 
