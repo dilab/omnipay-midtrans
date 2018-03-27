@@ -44,8 +44,11 @@ class SnapWindowRedirectionCompletePurchaseResponse extends AbstractResponse
     {
         $result =
             intval($this->data('status_code')) == 200 &&
-            strtolower($this->data('fraud_status')) == 'accept' &&
             in_array(strtolower($this->data('transaction_status')), ['settlement', 'capture']);
+
+        if ($fraudStatus = $this->data('fraud_status')) {
+            $result = $result && strtolower($fraudStatus) == 'accept';
+        }
 
         if (!$result) {
             $this->message = 'invalid fields';
