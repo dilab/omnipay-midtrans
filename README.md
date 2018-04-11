@@ -13,7 +13,7 @@ to your `composer.json` file:
 ```json
 {
     "require": {
-        "dilab/omnipay-midtrans": "~1.0"
+        "dilab/omnipay-midtrans": "~2.0"
     }
 }
 ```

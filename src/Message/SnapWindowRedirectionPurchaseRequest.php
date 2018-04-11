@@ -12,11 +12,11 @@ class SnapWindowRedirectionPurchaseRequest extends AbstractRequest
     const MAX_LENGTH_TRANSACTION_ID = 50;
 
     public function sendData($data)
-    { 
+    {
         $responseData = $this->httpClient
-            ->post($this->getEndPoint(), $this->getSendDataHeader(), json_encode($data), ['exceptions' => false])
-            ->send()
-            ->getBody(true);
+            ->request('post', $this->getEndPoint(), $this->getSendDataHeader(), json_encode($data))
+            ->getBody()
+            ->getContents();
 
         return $this->response = new SnapWindowRedirectionPurchaseResponse($this, $responseData);
     }
