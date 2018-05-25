@@ -46,6 +46,9 @@ class SnapWindowRedirectionPurchaseRequest extends AbstractRequest
                     'name' => $this->getDescription(),
                     'brand' => $this->getDescription(),
                 ]
+            ],
+            'credit_card' => [
+                'secure' => true
             ]
         ];
 
