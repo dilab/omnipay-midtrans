@@ -9,6 +9,7 @@
 namespace Omnipay\Midtrans\Message;
 
 use Omnipay\Tests\TestCase;
+use Omnipay\Common\Exception\InvalidRequestException;
 
 class TestSnapWindowRedirectionPurchaseRequest extends SnapWindowRedirectionPurchaseRequest
 {
@@ -86,6 +87,9 @@ class SnapWindowRedirectionPurchaseRequestTest extends TestCase
                     'brand' => 'Marina Run 2016',
                 ]
             ],
+            'credit_card' => [
+                'secure' => true
+            ],
             'customer_details' => [
                 'first_name' => 'Xu',
                 'last_name' => 'Ding',
@@ -104,10 +108,8 @@ class SnapWindowRedirectionPurchaseRequestTest extends TestCase
 
         $this->request->initialize($baseData);
 
-        $this->setExpectedException(
-            '\Omnipay\Common\Exception\InvalidRequestException',
-            'The amount parameter is required'
-        );
+        $this->expectException(InvalidRequestException::class);
+        $this->expectExceptionMessage('The amount parameter is required');
 
         $this->request->getData();
     }
@@ -121,9 +123,7 @@ class SnapWindowRedirectionPurchaseRequestTest extends TestCase
 
         $this->request->initialize($baseData);
 
-        $this->setExpectedException(
-            '\Omnipay\Common\Exception\InvalidRequestException'
-        );
+        $this->expectException(InvalidRequestException::class);
 
         $this->request->getData();
     }
@@ -135,9 +135,7 @@ class SnapWindowRedirectionPurchaseRequestTest extends TestCase
             'amount' => '10000.00'
         ]);
 
-        $this->setExpectedException(
-            '\Omnipay\Common\Exception\InvalidRequestException'
-        );
+        $this->expectException(InvalidRequestException::class);
 
         $this->request->getData();
     }
@@ -150,9 +148,7 @@ class SnapWindowRedirectionPurchaseRequestTest extends TestCase
             'transactionId' => '@123'
         ]);
 
-        $this->setExpectedException(
-            '\Omnipay\Common\Exception\InvalidRequestException'
-        );
+        $this->expectException(InvalidRequestException::class);
 
         $this->request->getData();
 
